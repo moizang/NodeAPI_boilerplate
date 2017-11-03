@@ -1,0 +1,45 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node $npm_package_main",
+    "lint": "eslint -c .eslintrc app/** test/**",
+    "newman": "newman run postman_collection.json",
+    "test": "npm run lint && npm run test_unit_with_coverage",
+    "test_unit": "mocha --timeout 5000 --recursive -R spec test",
+    "test_unit_with_coverage": "nyc $npm_package_scripts_test_unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "toto"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "8.9.0"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "chai-as-promised": "7.1.1",
+    "dirty-chai": "2.0.1",
+    "eslint": "4.10.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-mocha": "4.11.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-should-promised": "2.0.0",
+    "eslint-plugin-standard": "3.0.1",
+    "mocha": "4.0.1",
+    "newman": "3.8.3",
+    "nyc": "11.3.0",
+    "proxyquire": "1.8.0",
+    "sinon": "4.1.0",
+    "sinon-chai": "2.14.0"
+  },
+  "dependencies": {
+    "hapi": "16.6.2"
+  }
+}

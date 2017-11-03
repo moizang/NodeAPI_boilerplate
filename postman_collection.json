@@ -1,0 +1,87 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Newman API Test",
+		"_postman_id": "986b0616-5c62-5e55-4ecc-284c06c86e6b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Newman Test",
+			"description": "",
+			"item": [
+				{
+					"name": "HelloWorld",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var responseJSON;",
+									"",
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"responseJSON = JSON.parse(responseBody);",
+									"tests[\"Body contains message Hello World\"] = responseJSON.message === 'hello world';",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8000/hello",
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-sample-header",
+								"value": "Lorem ipsum dolor sit amet",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A `GET` request to this endpoint returns the list of all request headers as part of the response JSON.\nIn Postman, sending your own set of headers through the [Headers tab](https://www.getpostman.com/docs/requests#headers?source=echo-collection-app-onboarding) will reveal the headers as part of the response."
+					},
+					"response": []
+				},
+				{
+					"name": "HelloName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var responseJSON;",
+									"try {",
+									"    tests[\"response code is 200\"] = responseCode.code === 200;",
+									"    responseJSON = JSON.parse(responseBody);",
+									"    tests[\"Body contains message Hello World\"] = responseJSON.message === 'hello foo';",
+									"    ",
+									"}",
+									"catch (e) { }",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8000/hello/foo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-sample-header",
+								"value": "Lorem ipsum dolor sit amet",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A `GET` request to this endpoint returns the list of all request headers as part of the response JSON.\nIn Postman, sending your own set of headers through the [Headers tab](https://www.getpostman.com/docs/requests#headers?source=echo-collection-app-onboarding) will reveal the headers as part of the response."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
